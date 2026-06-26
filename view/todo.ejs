@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="todoContainer">
+        <div class="todoBox">
+            <form class="todoForm">
+                <input type="text" placeholder="Add Todo">
+                <button type="submit">+</button>
+            </form>
+
+            <div class="todosBox">
+                <% todos.forEach(todo => { %>
+                    <div class="todo">
+                        <input
+                            class="todoInput <%= todo.isChecked ? 'checkedTodo' : '' %>"
+                            type="text"
+                            value="<%= todo.todo %>"
+                            <%= !todo.isEditing ? "disabled" : "" %>
+                        >
+
+                        <div>
+                            <% if (!todo.isChecked) { %>
+                                <button class="editBtn" data-id="<%= todo.id %>">
+                                    <% if (!todo.isEditing) { %>
+                                        <i class="bi bi-pencil-fill"></i>
+                                    <% } else { %>
+                                        <i class="bi bi-floppy"></i>
+                                    <% } %>
+                                </button>
+
+                                <button class="doneBtn" data-id="<%= todo.id %>">
+                                    <i class="bi bi-check-circle-fill"></i>
+                                </button>
+                            <% } %>
+
+                            <button class="deleteBtn" data-id="<%= todo.id %>">
+                                <i class="bi bi-trash3"></i>
+                            </button>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+
+            <button class="logOutBtn">LogOut</button>
+        </div>
+    </div>
+
+    <script src="./todo.js"></script>
+</body>
+</html>
