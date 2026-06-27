@@ -25,29 +25,6 @@ async function saveUser(user) {
   });
 }
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const todo = e.target[0].value.trim();
-
-  if (!todo) return;
-
-  const user = await getLoggedInUser();
-
-  user.todos.push({
-    id: Date.now(),
-    todo,
-    isEditing: false,
-    isChecked: false,
-  });
-
-  await saveUser(user);
-
-  e.target.reset();
-
-  location.reload();
-});
-
 todosBox.addEventListener("click", async (e) => {
   const button = e.target.closest("button");
 
