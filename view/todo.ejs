@@ -18,7 +18,7 @@
                 <% todos.forEach(todo => { %>
                     <div class="todo">
                         <input
-                            class="todoInput <%= todo.isChecked ? 'checkedTodo' : '' %>"
+                            class="todoInput <%= todo.isEditing ? 'editableTodo' : '' %> <%= todo.isChecked ? 'checkedTodo' : '' %>"
                             type="text"
                             value="<%= todo.todo %>"
                             <%= !todo.isEditing ? "disabled" : "" %>

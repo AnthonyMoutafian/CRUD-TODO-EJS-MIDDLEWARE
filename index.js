@@ -5,8 +5,8 @@ const {
   loginRoute,
   usersRouter,
   todoRoute,
+  loggedInUserRouter
 } = require("./Routes");
-const { loggedInUserRouter } = require("./Routes/loggedInUserRoute");
 require("dotenv").config();
 const PORT = process.env.PORT;
 const app = express();

@@ -1,4 +1,5 @@
 const { homeRoute } = require("./homeRoute");
+const { loggedInUserRouter } = require("./loggedInUserRoute");
 const { loginRoute } = require("./loginRoute");
 const { registerRoute } = require("./registerRoute");
 const { todoRoute } = require("./todoRoute");
@@ -9,5 +10,6 @@ module.exports = {
   registerRoute,
   loginRoute,
   usersRouter,
-  todoRoute
+  todoRoute,
+  loggedInUserRouter
 };
